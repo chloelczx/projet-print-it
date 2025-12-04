@@ -32,6 +32,12 @@ arrowLeft.addEventListener("click", () => {
 
 	// Au clic, slide en cours devient élément (index du tableau) précédent
 	currentSlide--
+
+	// Au clic, retour à dernière slide si première slide dépassée
+	if (currentSlide < 0) {
+		currentSlide = slides.length -1;
+	}
+	
 	// Au clic, appel de la fonction de mise à jour du carrousel
 	updateCarousel();
 });
@@ -41,6 +47,12 @@ arrowRight.addEventListener("click", () => {
 
 	// Au clic, slide en cours devient élément (index du tableau) suivant
 	currentSlide++
+	
+	// Au clic, retour à première slide si dernière slide dépassée
+	if (currentSlide >= slides.length) {
+		currentSlide = 0;
+	}
+
 	// Au clic, appel de la fonction de mise à jour du carrousel
 	updateCarousel();
 });
@@ -60,6 +72,12 @@ slides.forEach((slide, i) => {
 	dot.classList.add("dot");
 	// Ajout nouvel élément div à son conteneur parent "dots" : création d'un bullet point par slide
 	dotsContainer.appendChild(dot);
+
+	// Ajout condition "si élément en cours dans tableau"
+	if (i === 0) {
+		// Ajout classe spécifique "dot_selected" : modification état du bullet point
+		dot.classList.add("dot_selected");
+	}
 });
 
 

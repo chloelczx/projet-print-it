@@ -1,3 +1,16 @@
+// Sélection des éléments "arrow"
+const arrowLeft = document.querySelector(".arrow_left");
+const arrowRight = document.querySelector(".arrow_right");
+
+// Ajout EventListener sur les éléments "arrow"
+arrowLeft.addEventListener("click", function () {
+	console.log("Clic sur flèche de gauche");
+});
+
+arrowRight.addEventListener("click", function () {
+	console.log("Clic sur flèche de droite");
+});
+
 const slides = [
 	{
 		"image":"slide1.jpg",
